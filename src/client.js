@@ -37,7 +37,7 @@ function MonetizerClient (opts) {
           sharedSecret
         })
         const stream = connection.createStream()
-        stream.sendTotal(itemPrice)
+        stream.sendTotal(Infinity)
       })
   }
 }

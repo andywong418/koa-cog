@@ -19,7 +19,7 @@ class KoaCogMonetization {
     this.connected = true
   }
 
-  async receiveStream (ctx, next, itemPrice) {
+  async receiveStream (ctx, next, itemPrice, file) {
     // Check for pay token, check for stream, and application index
     if (ctx.request.headers['Pay-Token'] && ctx.request.headers['Stream-Payment']) {
       // This is a Paid API end point. Send back payment details and populate the ctx.stream for this route.
@@ -47,6 +47,7 @@ class KoaCogMonetization {
           this.accountants.set(id, newAccountant)
           ctx.accountant = newAccountant
           // Request payment through stream data.
+          // Do some calculation on file.
         })
       }
     }
